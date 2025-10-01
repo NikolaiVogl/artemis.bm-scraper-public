@@ -82,7 +82,7 @@ dashboard_ui <- function() {
         ),
         
         # Cat Bond Losses Tab
-        tabItem(tabName = "losses",
+        shinydashboard::tabItem(tabName = "losses",
           shiny::fluidRow(
             # Summary boxes
             shinydashboard::valueBoxOutput("total_events", width = 3),

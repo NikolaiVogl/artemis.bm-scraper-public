@@ -91,6 +91,7 @@ render_deal_charts <- function(values, input, output) {
     
     p <- plotly::plot_ly(data_to_plot, x = ~year, y = ~total_volume, type = 'bar',
                  text = ~paste("Volume:", format_currency(total_volume), "<br>Deals:", deal_count),
+                 textposition = 'none',
                  hovertemplate = '<b>%{x}</b><br>Volume: %{text}<extra></extra>',
                  marker = list(color = if(input$volume_type == "issued") '#3498db' else '#e74c3c')) %>%
       plotly::layout(title = chart_title,
@@ -116,7 +117,7 @@ render_deal_charts <- function(values, input, output) {
     # Group by risks_perils_covered since that's what we have from the scraper
     type_summary <- values$processed_deals$raw_data %>%
       dplyr::group_by(risks_perils_covered) %>%
-      dplyr::summarise(count = n(), volume = sum(volume_millions, na.rm = TRUE), .groups = 'drop') %>%
+      dplyr::summarise(count = dplyr::n(), volume = sum(volume_millions, na.rm = TRUE), .groups = 'drop') %>%
       dplyr::arrange(dplyr::desc(count)) %>%
       dplyr::slice_head(n = 10) # Show top 10 risk types
     
