@@ -1,0 +1,34 @@
+Package: artemis.bm.scraper
+Type: Package
+Title: Artemis.bm Scraper Dashboard
+Version: 0.1.0
+Authors@R: person("Artemis.bm Scraper", "Maintainer", 
+    email = "artemis.bm-scraper@example.com", role = c("aut", "cre"))
+Description: A modular R Shiny dashboard application that scrapes data from 
+    Artemis.bm and provides interactive visualizations for catastrophe bond 
+    and insurance-linked securities (ILS) market data.
+License: all rights reserved
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 4.0.0)
+Imports:
+    shiny,
+    shinydashboard,
+    htmltools,
+    DT,
+    plotly,
+    dplyr,
+    tidyr,
+    rvest,
+    httr,
+    jsonlite,
+    lubridate,
+    stringr,
+    ggplot2,
+    scales,
+    R6,
+    magrittr
+Suggests:
+    pkgload
+RoxygenNote: 7.0.0
